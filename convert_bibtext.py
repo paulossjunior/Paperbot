@@ -6,7 +6,7 @@ bib_data = parser.parse_file('entrada.bib')
 for key in  bib_data.entries.keys():
     
         paper = bib_data.entries[key]
-        if paper.original_type == "inproceedings" and int(paper.fields['year']) < 2020:
+        if paper.original_type == "inproceedings" and int(paper.fields['year']) <=2021:
             
             authors = ""
             for author in paper.persons['author']:
@@ -24,7 +24,7 @@ for key in  bib_data.entries.keys():
             
             title = LatexNodes2Text().latex_to_text(paper.fields['title'])
             authors = LatexNodes2Text().latex_to_text(authors)
-            result = "\"\";\""+title+"\";\""+authors+"\";\""+paper.fields['url']+"\""
+            result = "\""+title+"\";\""+authors+"\";\""+paper.fields['url']+"\""
             print (result)
             
             
